@@ -6,7 +6,7 @@ This project presents the concepet of `Blockchain` represented through a s Block
 
 - **Genesis Block**: The origin block from which all other blocks derive. It has no predecessors.
 - **Normal Blocks**: Contain transactions, can have one or several preceding blocks.
-- **Directed Acyclic Graph (DAG)**: A graph with directed edges where no cycles exist, allowing for the BlockDAG structure.
+- **Directed Acyclic Graph (DAG)**: A graph with directed edges where no cycles exist.
 
 ## Definitions
 
@@ -27,8 +27,8 @@ The BlockDAG framework introduces an innovative approach to blockchain architect
 
 A `k-cluster` is a subset of nodes within the BlockDAG where each node's `anticone` (blocks with ambiguous ordering relative to this node) intersects with the subset in `k` or fewer other nodes. This concept is pivotal for streamlining the consensus process by limiting the ambiguity in transaction order.
 
-- **K-Cluster Definition:** In a Directed Acyclic Graph (DAG) \(G = (V, E)\), a subset \(S \subseteq V\) is a `k-cluster` if for any node \(B \in S\), it holds that \(|anticone(B) \cap S| \leq k\).
-- **Maximum K-Cluster:** For the DAG \(G = (V, E)\), the `maximum k-cluster` (\(MCS_k\)) is a subset \(S^* \subset V\) with the largest size satisfying \(|anticone(B) \cap S^*| \leq k\), for every \(B \in S^*\).
+- **K-Cluster Definition:** In a Directed Acyclic Graph (DAG) $\(G = (V, E)\)$, a subset $\(S \subseteq V\)$ is a `k-cluster` if for any node $\(B \in S\)$, it holds that $\(|anticone(B) \cap S| \leq k\)$.
+- **Maximum K-Cluster:** For the DAG $\(G = (V, E)\)$, the `maximum k-cluster` ($\(MCS_k\)$) is a subset $\(S^* \subset V\)$ with the largest size satisfying $\(|anticone(B) \cap S^*| \leq k\)$, for every $\(B \in S^*\)$.
 
 The `k-cluster` concept and the algorithm for identifying the `maximum k-cluster` are crucial for enhancing the BlockDAG's efficiency in processing transactions. By reducing order ambiguity among blocks, BlockDAGs can achieve faster consensus and handle a higher volume of transactions compared to traditional blockchain structures.
 
