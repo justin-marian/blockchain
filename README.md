@@ -1,29 +1,31 @@
 # Blockchain
 
-This project presents the concepet of `Blockchain` represented through a s BlockDAG (Directed Acyclic Graph) structure, a generalization of traditional blockchain technology allowing for parallel processing of transactions through branching and merging of blocks. The codebase is structured into several key parts, demonstrating the creation, manipulation, and analysis of the BlockDAG structure. Here's an in-depth overview based on the provided implementation:
-
-## Key Concepts
-
-- **Genesis Block**: The origin block from which all other blocks derive. It has no predecessors.
-- **Normal Blocks**: Contain transactions, can have one or several preceding blocks.
-- **Directed Acyclic Graph (DAG)**: A graph with directed edges where no cycles exist.
+This project introduces the concept of `Blockchain` through a `BlockDAG` (`Directed Acyclic Graph`) structure. Unlike traditional blockchains that operate linearly, `BlockDAG` allows for branching and merging of transactions, enabling parallel processing. This approach is a generalization of traditional blockchain technology and is represented using adjacency lists for efficient and scalable graph management.
 
 ## Definitions
 
-- `past(Node)`: Set of blocks directly or indirectly referenced by `Node` that must be applied before `Node`.
-- `future(Node)`: Set of blocks that reference `Node` directly or indirectly and can only be applied after `Node`.
-- `anticone(Node)`: Set of blocks for which the order with `Node` is ambiguous. Deciding their order is a key challenge.
-- `tips(G)`: Blocks in graph `G` with no other blocks referencing them.
+- **Genesis Block**: The initial block, with no predecessors.
+- **Normal Blocks**: Contain transactions and may have multiple predecessors.
+- **Directed Acyclic Graph (DAG)**: Ensures no cycles exist, maintaining the blockchain's integrity.
+
+Detailed Concepts:
+
+- `past(Node)`: Blocks referenced directly or indirectly by `Node`, necessary before `Node`.
+- `future(Node)`: Blocks that reference `Node`, applicable only after `Node`.
+- `anticone(Node)`: Blocks with ambiguous order relative to `Node`.
+- `tips(G)`: Blocks in graph `G` with no referencing blocks, indicating recent additions.
 
 ## BlockDAG
 
-Unlike traditional blockchains that operate in a linear sequence of blocks, the BlockDAG structure enables a network of transactions that can branch and merge, allowing for parallel processing of transactions. The BlockDAG structure is represented using an adjacency list, a common approach for storing graphs. This representation is efficient in terms of space, especially when the graph is sparse, and is well-suited for exploring the connections between blocks.
+BlockDAG deviates from the linear block sequence of traditional blockchains by leveraging a Directed Acyclic Graph (DAG) to enable branching and merging transactions for parallel processing.
 
-The graph is initialized from a file containing the graph's structure, including the number of vertices and edges, and the connections between them. This information is used to populate the adjacency list and the index map, which provides a mapping between vertex names and their indices in the list. Edges between nodes (blocks) are added to the graph. This is a critical operation for constructing the BlockDAG, as it establishes the relationships between blocks, including their predecessors and successors.
+Utilize adjacency lists for efficient graph representation, ideal for sparse graphs and exploring block connections. The graph initializes from a predefined file detailing vertices, edges, and their connections, populating the adjacency list and an index map for vertex-name mapping.
+
+Adding edges between nodes is crucial, as it defines the BlockDAG's structure by outlining block relationships, including their predecessors and successors.
 
 ## K-Cluster
 
-The BlockDAG framework introduces an innovative approach to blockchain architecture, allowing for parallel processing of transactions. A key concept within this structure is the `k-cluster`, which helps manage the complexity of transaction ordering and consensus.
+A key concept within this structure is the `k-cluster`, which helps manage the complexity of transaction ordering and consensus.
 
 A `k-cluster` is a subset of nodes within the BlockDAG where each node's `anticone` (blocks with ambiguous ordering relative to this node) intersects with the subset in `k` or fewer other nodes. This concept is pivotal for streamlining the consensus process by limiting the ambiguity in transaction order.
 
