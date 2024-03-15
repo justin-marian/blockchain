@@ -8,7 +8,7 @@ This project introduces the concept of `Blockchain` through a `BlockDAG` (`Direc
 - **Normal Blocks**: Contain transactions and may have multiple predecessors.
 - **Directed Acyclic Graph (DAG)**: Ensures no cycles exist, maintaining the blockchain's integrity.
 
-Detailed Concepts:
+## Detailed Concepts
 
 - `past(Node)`: Blocks referenced directly or indirectly by `Node`, necessary before `Node`.
 - `future(Node)`: Blocks that reference `Node`, applicable only after `Node`.
@@ -49,10 +49,6 @@ The Anticone function determines blocks outside past and future sets, resolving 
 
 **Utility Functions:**
 The project provides utility functions for linked list and queue manipulation, vital for graph traversal. These ensure efficient memory management and clean handling of dynamic data structures.
-
-## Utility Functions in BlockDAG Implementation
-
-The BlockDAG implementation relies on a set of utility functions designed to support efficient data manipulation, graph traversal, and memory management. These functions are integral to the system's functionality, ensuring smooth operation and the integrity of the BlockDAG structure. Here is an overview of these utility functions:
 
 ### Linked List Operations
 
