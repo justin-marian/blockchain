@@ -36,19 +36,19 @@ The `k-cluster` concept and the algorithm for identifying the `maximum k-cluster
 
 ## Graph Traversal
 
-Traversal operations, such as Breadth-First Search (BFS) and Depth-First Search (DFS), are implemented to explore the graph. These traversals are used to compute the past, future, and tips of a given block, as well as to check for cycles (which should not exist in a valid DAG).
+Traversal operations, such as Breadth-First Search (BFS) and Depth-First Search (DFS), are implemented to explore the graph. These traversals are used to compute the `past`, `future`, and `tips` of a given block, as well as to check for cycles (which should not exist in a valid DAG).
 
 **Past and Future Sets:**
-The past and future sets of a node are computed using graph traversal algorithms. The Past function employs a direct traversal, while the Future function first creates a transpose of the graph (reversing the direction of all edges) and then performs the traversal. These sets are crucial for understanding the dependencies between blocks in the BlockDAG.
+Past and future sets are calculated using graph traversal. Past traverses directly, while Future reverses edges before traversal. These sets reveal block dependencies in BlockDAG.
 
 **Anticone and Tips:**
-The Anticone function calculates the set of blocks that are neither in the past nor in the future of a given block, which helps in resolving order ambiguity. The Tips function identifies blocks with no incoming edges, indicating they are the most recent blocks added to the BlockDAG.
+The Anticone function determines blocks outside past and future sets, resolving order ambiguity. Tips identifies blocks lacking incoming edges, marking recent BlockDAG additions.
 
 **Cycle Detection:**
-A vital validation step for the BlockDAG is ensuring it remains acyclic. The HasCycle function utilizes topological sorting to detect cycles, employing a recursive DFS approach to explore the graph and mark nodes during the traversal to identify back edges.
+`HasCycle` ensures BlockDAG's acyclicity, using topological sorting and recursive DFS to mark nodes, identifying back edges indicating cycles.
 
 **Utility Functions:**
-The project includes several utility functions for manipulating linked lists and queues, which are used in graph traversal operations, and for memory management to ensure efficient and clean handling of dynamic data structures.
+The project provides utility functions for linked list and queue manipulation, vital for graph traversal. These ensure efficient memory management and clean handling of dynamic data structures.
 
 ## Utility Functions in BlockDAG Implementation
 
