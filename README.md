@@ -50,7 +50,7 @@ The Anticone function determines blocks outside past and future sets, resolving 
 **Utility Functions:**
 The project provides utility functions for linked list and queue manipulation, vital for graph traversal. These ensure efficient memory management and clean handling of dynamic data structures.
 
-### Linked List Operations
+## Linked List
 
 Linked lists are used extensively for storing nodes in a manner that facilitates ordered insertion and traversal. The following functions are used to manage linked lists within the BlockDAG:
 
@@ -59,7 +59,7 @@ Linked lists are used extensively for storing nodes in a manner that facilitates
 - **Contains_Ord**: Checks if a given name exists within a list. This function is used to determine set membership, such as verifying if a block is part of the `past` or `future` set of another block.
 - **Free_Ord**: Frees the memory allocated for a linked list. Proper memory management is crucial to prevent memory leaks and ensure the efficient operation of the BlockDAG system.
 
-### Queue Operations
+## Queue
 
 Queues are used in BFS to manage the nodes being traversed. The following functions manage queue operations:
 
